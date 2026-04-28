@@ -44,15 +44,13 @@ a{color:inherit;text-decoration:none}
 .nav{
   position:fixed;top:0;left:0;right:0;z-index:100;
   padding:22px 48px;
-  display:grid;grid-template-columns:1fr auto 1fr;align-items:center;
+  display:flex;align-items:center;justify-content:flex-end;
   background:rgba(255,255,255,.88);
   backdrop-filter:blur(12px);
-  border-bottom:1px solid rgba(64,39,89,.08);
   transition:padding .4s ease;
 }
 .nav.scrolled{padding:14px 48px}
-.nav-left,.nav-right{display:flex;gap:36px;align-items:center}
-.nav-right{justify-content:flex-end}
+.nav-menu{display:flex;gap:32px;align-items:center}
 .nav a{
   font-size:11px;letter-spacing:3px;text-transform:uppercase;
   font-weight:500;color:var(--ink);transition:color .3s;
@@ -61,12 +59,14 @@ a{color:inherit;text-decoration:none}
 .nav a::after{content:'';position:absolute;left:0;right:0;bottom:-6px;height:1px;background:var(--primary);transform:scaleX(0);transform-origin:right;transition:transform .5s cubic-bezier(.7,0,.2,1)}
 .nav a:hover::after{transform:scaleX(1);transform-origin:left}
 .nav a:hover{color:var(--primary)}
-.logo{
+.nav .logo{
+  position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
   display:inline-flex;align-items:center;justify-content:center;
-  padding-left:14px;
+  z-index:2;
 }
-.logo img{height:54px;width:auto;display:block;transition:opacity .3s}
-.logo:hover img{opacity:.8}
+.nav .logo::after{display:none}
+.nav .logo img{height:54px;width:auto;display:block;transition:opacity .3s,height .3s}
+.nav .logo:hover img{opacity:.8}
 .nav.scrolled .logo img{height:44px}
 
 /* ── HERO SPLIT ──────────────────────────────────── */
@@ -87,34 +87,34 @@ a{color:inherit;text-decoration:none}
 }
 .panel video{
   position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
-  z-index:1;transition:transform 1.6s cubic-bezier(.2,.8,.2,1);
-  filter:brightness(.92) saturate(.95);
+  z-index:1;transition:transform 1.6s cubic-bezier(.2,.8,.2,1),filter .8s ease;
+  filter:grayscale(1) brightness(.7) contrast(1.05);
 }
-.panel:hover video{transform:scale(1.04)}
+.panel:hover video{transform:scale(1.04);filter:grayscale(1) brightness(.82) contrast(1.05)}
 .panel::before{
   content:'';position:absolute;inset:0;z-index:2;
-  background:linear-gradient(180deg,rgba(0,0,0,.05) 0%,rgba(0,0,0,.0) 30%,rgba(0,0,0,.45) 100%);
+  background:linear-gradient(180deg,rgba(0,0,0,.15) 0%,rgba(0,0,0,.0) 35%,rgba(0,0,0,.5) 100%);
 }
-.panel-text{
-  position:relative;z-index:5;color:#fff;text-align:center;
-  padding:0 24px;
-  transform:translateY(20px);opacity:0;
-  animation:fadeUp 1.6s cubic-bezier(.2,.8,.2,1) .8s forwards;
+.panel-title{
+  position:absolute;left:0;right:0;bottom:64px;text-align:center;z-index:5;
+  color:#fff;font-size:30px;letter-spacing:6px;font-weight:700;
+  text-transform:uppercase;
+  opacity:0;transform:translateY(16px);
+  animation:fadeUp 1.4s cubic-bezier(.2,.8,.2,1) .8s forwards;
+  transition:letter-spacing .5s ease;
 }
-.panel-text .eyebrow{color:rgba(255,255,255,.75)}
-.panel-text h2{
-  font-size:54px;letter-spacing:12px;font-weight:200;
-  margin:14px 0 8px;
+.panel:hover .panel-title{letter-spacing:10px}
+.panel-arrow{
+  position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) scale(.85);z-index:5;
+  width:64px;height:64px;border:1px solid rgba(255,255,255,.45);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;color:#fff;
+  opacity:0;transition:opacity .5s,transform .5s,background .4s,color .4s,border-color .4s;
 }
-.panel-text p{font-size:13px;letter-spacing:2.5px;opacity:.9;font-weight:300}
-.panel-text .arrow{
-  display:inline-flex;align-items:center;gap:10px;margin-top:28px;
-  font-size:10px;letter-spacing:3px;
-  border-bottom:1px solid rgba(255,255,255,.5);padding-bottom:6px;
-  transition:letter-spacing .4s, border-color .4s, gap .4s;
-}
-.panel-text .arrow .ico{width:14px;height:14px}
-.panel:hover .panel-text .arrow{letter-spacing:5px;border-color:#fff;gap:14px}
+.panel-arrow .ico{width:18px;height:18px}
+.panel:hover .panel-arrow{opacity:1;transform:translate(-50%,-50%) scale(1)}
+.panel:hover .panel-arrow:hover,
+.panel:hover .panel-arrow{background:transparent;color:#fff}
+.panel:hover .panel-arrow{background:rgba(255,255,255,.08)}
 @keyframes fadeUp{to{transform:translateY(0);opacity:1}}
 
 /* ── REVEAL ──────────────────────────────────────── */
@@ -139,10 +139,10 @@ section{padding:140px 48px}
 .brand:hover .brand-img img{transform:scale(1.04)}
 .brand-img::after{content:'';position:absolute;inset:0;border:1px solid rgba(255,255,255,.4);margin:14px;pointer-events:none}
 .brand-text h3{
-  font-size:44px;font-weight:200;letter-spacing:-.5px;line-height:1.3;
+  font-size:44px;font-weight:700;letter-spacing:-1px;line-height:1.3;
   margin:18px 0 36px;color:var(--primary);
 }
-.brand-text h3 strong{font-weight:500;color:var(--point-deep)}
+.brand-text h3 strong{font-weight:800;color:var(--point-deep)}
 .brand-tags{
   display:flex;gap:20px;font-size:12px;
   letter-spacing:3px;text-transform:uppercase;color:var(--point-deep);
@@ -165,10 +165,10 @@ section{padding:140px 48px}
 .men-visual img{width:100%;height:100%;object-fit:cover;transition:transform 1.4s cubic-bezier(.2,.8,.2,1)}
 .men:hover .men-visual img{transform:scale(1.04)}
 .men-text h3{
-  font-size:40px;font-weight:200;letter-spacing:-.5px;line-height:1.3;
+  font-size:40px;font-weight:700;letter-spacing:-1px;line-height:1.3;
   margin:14px 0 24px;color:#fff;
 }
-.men-text h3 strong{font-weight:400;color:var(--point-soft)}
+.men-text h3 strong{font-weight:800;color:var(--point-soft)}
 .men-text p.lede{
   font-size:14.5px;color:rgba(255,255,255,.75);font-weight:300;
   line-height:1.85;margin-bottom:36px;max-width:560px;
@@ -193,10 +193,10 @@ section{padding:140px 48px}
 .academy{background:var(--cream)}
 .academy-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:80px;align-items:center}
 .academy-text h3{
-  font-size:54px;font-weight:200;line-height:1.2;letter-spacing:-1px;
+  font-size:54px;font-weight:700;line-height:1.2;letter-spacing:-1.5px;
   margin:14px 0 32px;color:var(--primary);
 }
-.academy-text h3 strong{font-weight:300;color:var(--point-deep)}
+.academy-text h3 strong{font-weight:800;color:var(--point-deep)}
 .academy-list{list-style:none;display:grid;gap:14px;margin-bottom:40px}
 .academy-list li{font-size:14.5px;color:var(--ink-2);font-weight:400;padding-left:20px;position:relative;letter-spacing:.2px}
 .academy-list li::before{content:'';position:absolute;left:0;top:11px;width:10px;height:1px;background:var(--point-deep)}
@@ -215,8 +215,8 @@ section{padding:140px 48px}
 /* ── PRODUCTS ────────────────────────────────────── */
 .products{background:var(--paper)}
 .section-head{text-align:center;max-width:760px;margin:0 auto 80px}
-.section-head h3{font-size:46px;font-weight:200;letter-spacing:-.5px;line-height:1.25;margin-top:18px;color:var(--primary)}
-.section-head h3 strong{font-weight:400;color:var(--point-deep)}
+.section-head h3{font-size:46px;font-weight:700;letter-spacing:-1px;line-height:1.25;margin-top:18px;color:var(--primary)}
+.section-head h3 strong{font-weight:800;color:var(--point-deep)}
 .product-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
 .product{
   position:relative;overflow:hidden;aspect-ratio:3/4;
@@ -228,7 +228,7 @@ section{padding:140px 48px}
 .product .pbg img{width:100%;height:100%;object-fit:cover}
 .product::after{
   content:'';position:absolute;inset:0;z-index:2;
-  background:linear-gradient(180deg,rgba(0,0,0,.0) 30%,rgba(64,39,89,.7) 100%);
+  background:linear-gradient(180deg,rgba(0,0,0,.0) 30%,rgba(0,0,0,.65) 100%);
 }
 .product:hover .pbg{transform:scale(1.08)}
 .product > *{position:relative;z-index:3}
@@ -240,13 +240,16 @@ section{padding:140px 48px}
   margin-top:28px;transition:background .4s,border-color .4s,color .4s;
 }
 .product .arrow .ico{width:16px;height:16px}
-.product:hover .arrow{background:var(--point);color:var(--primary-deep);border-color:var(--point)}
+.product:hover .arrow{border-color:#fff}
 
 /* ── LOCATION ────────────────────────────────────── */
 .location{background:var(--cream);padding:140px 48px}
 .location-head{text-align:center;margin-bottom:64px}
-.location-head h3{font-size:60px;font-weight:200;letter-spacing:8px;color:var(--point-deep);margin-top:12px}
-.location-head .sub{font-size:14px;color:var(--ink-2);letter-spacing:2px;margin-top:8px}
+.location-head h3{font-size:60px;font-weight:700;letter-spacing:6px;color:var(--primary);margin-top:12px}
+.location-head .sub{font-size:14px;color:var(--ink-2);letter-spacing:2px;margin-top:8px;font-weight:500}
+.location-head .eyebrow{font-weight:700;letter-spacing:5px}
+.info-row .value{font-weight:600}
+.info-row .label{font-weight:700}
 .location-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:64px;align-items:stretch;max-width:1200px;margin:0 auto}
 .location-map{aspect-ratio:4/3;background:#dcd8d0;position:relative;overflow:hidden;border:1px solid rgba(64,39,89,.08)}
 .location-map iframe{width:100%;height:100%;border:0;filter:grayscale(.3)}
@@ -276,10 +279,9 @@ footer .copy{margin-top:48px;padding-top:24px;border-top:1px solid rgba(255,255,
 
 /* ── RESPONSIVE ──────────────────────────────────── */
 @media (max-width:900px){
-  .nav{padding:18px 20px;grid-template-columns:auto 1fr auto}
-  .nav-left{display:none}
-  .nav-right{gap:18px}
-  .nav-right a:not(.nav-cta){display:none}
+  .nav{padding:18px 20px;justify-content:flex-end}
+  .nav-menu{gap:18px}
+  .nav-menu a:not(:last-child){display:none}
   .logo img,.nav.scrolled .logo img{height:40px}
   .hero{grid-template-columns:1fr;min-height:auto;height:auto}
   .panel{height:60vh;min-height:460px}
@@ -310,52 +312,42 @@ footer .copy{margin-top:48px;padding-top:24px;border-top:1px solid rgba(255,255,
 
 <!-- ── NAV ─────────────────────────────────────────── -->
 <nav class="nav" id="nav">
-  <div class="nav-left">
+  <a href="#" class="logo" aria-label="VL Visual Light">
+    <img src="../브이엘 로고.png" alt="VL Visual Light · Image Consulting">
+  </a>
+  <div class="nav-menu">
     <a href="#brand">ABOUT</a>
     <a href="#men">PROGRAM</a>
     <a href="#academy">ACADEMY</a>
-  </div>
-  <a href="#" class="logo" aria-label="VL Visual Light">
-    <img src="logo.png" alt="VL Visual Light · Image Consulting">
-  </a>
-  <div class="nav-right">
     <a href="#">REVIEW</a>
-    <a href="#location" class="nav-cta">RESERVATION</a>
+    <a href="#location">RESERVATION</a>
   </div>
 </nav>
 
 <!-- ── HERO 2-SPLIT VIDEO ──────────────────────────── -->
 <section class="hero" style="padding:84px 0 0">
   <div class="hero-divider"></div>
-  <div class="panel panel-women">
+  <a href="#" class="panel panel-women">
     <video autoplay muted loop playsinline>
-      <source src="women.mp4" type="video/mp4">
+      <source src="../여자영상.mp4" type="video/mp4">
     </video>
-    <div class="panel-text">
-      <span class="eyebrow">For Women</span>
-      <h2 class="display">WOMEN</h2>
-      <p>Personal Color · Styling</p>
-      <span class="arrow">SHOP NOW <span class="ico" style="width:14px;height:14px"><svg><use href="#i-arrow"/></svg></span></span>
-    </div>
-  </div>
-  <div class="panel panel-men">
+    <span class="panel-arrow"><span class="ico"><svg><use href="#i-arrow"/></svg></span></span>
+    <h2 class="panel-title">Personal Color</h2>
+  </a>
+  <a href="#" class="panel panel-men">
     <video autoplay muted loop playsinline>
-      <source src="men.mp4" type="video/mp4">
+      <source src="../남자영상.mp4" type="video/mp4">
     </video>
-    <div class="panel-text">
-      <span class="eyebrow">For Men</span>
-      <h2 class="display">MEN</h2>
-      <p>Signature Image Consulting</p>
-      <span class="arrow">SHOP NOW <span class="ico" style="width:14px;height:14px"><svg><use href="#i-arrow"/></svg></span></span>
-    </div>
-  </div>
+    <span class="panel-arrow"><span class="ico"><svg><use href="#i-arrow"/></svg></span></span>
+    <h2 class="panel-title">Men's Consulting</h2>
+  </a>
 </section>
 
 <!-- ── 브랜드 소개 ─────────────────────────────────── -->
 <section class="brand" id="brand">
   <div class="wrap brand-grid">
     <div class="brand-img reveal">
-      <img src="brand.jpg" alt="VL 브랜드">
+      <img src="../브랜드.jfif" alt="VL 브랜드">
     </div>
     <div class="brand-text reveal-stagger">
       <span class="eyebrow">Brand Philosophy</span>
@@ -377,19 +369,16 @@ footer .copy{margin-top:48px;padding-top:24px;border-top:1px solid rgba(255,255,
 <section class="men" id="men">
   <div class="wrap men-grid">
     <div class="men-visual reveal">
-      <img src="mens-ba.png" alt="남성 컨설팅 Before & After">
+      <img src="../후기.png" alt="남성 컨설팅 Before & After">
     </div>
     <div class="men-text reveal-stagger">
       <span class="eyebrow">Signature For Men</span>
       <h3>남자를 위해 설계된,<br><strong>남자만을 위한 컨설팅.</strong></h3>
-      <p class="lede">메이크업이 아닌 스타일링 중심으로 설계된 남성 전용 프리미엄 코스. 셔츠 · 수트 · 캐주얼 · 액세서리까지 남자의 실전 옷장에 바로 적용됩니다.</p>
+      <p class="lede">스타일링 중심의 남성 전용 프리미엄 코스. 실전 옷장에 바로 적용됩니다.</p>
       <div class="men-spec">
         <dl><dt>소요 시간</dt><dd>약 120분 · 프라이빗 1:1</dd></dl>
-        <dl><dt>진단</dt><dd>16계절 드레이핑 + 8타입 심화</dd></dl>
         <dl><dt>스타일링</dt><dd>셔츠 · 수트 · 캐주얼 컬러 매칭</dd></dl>
-        <dl><dt>얼굴형 · 파츠</dt><dd>ICPA 기준 디테일 분석</dd></dl>
         <dl><dt>결과물</dt><dd>PDF 진단서 + 남성 팔레트북</dd></dl>
-        <dl><dt>애프터</dt><dd>쇼핑 가이드 + 1회 문자 Q&A</dd></dl>
       </div>
       <div class="men-price">
         <span class="label">남성 프리미엄 컨설팅</span>
@@ -415,7 +404,7 @@ footer .copy{margin-top:48px;padding-top:24px;border-top:1px solid rgba(255,255,
       <a href="#" class="btn-line">VIEW MORE <span class="ico"><svg><use href="#i-arrow"/></svg></span></a>
     </div>
     <div class="academy-img reveal">
-      <img src="academy.jpg" alt="아카데미 강의">
+      <img src="../아카데미.jfif" alt="아카데미 강의">
     </div>
   </div>
 </section>
@@ -429,19 +418,19 @@ footer .copy{margin-top:48px;padding-top:24px;border-top:1px solid rgba(255,255,
     </div>
     <div class="product-grid reveal-stagger">
       <a href="#" class="product">
-        <div class="pbg"><img src="personal.jpg" alt="퍼스널 컬러 진단"></div>
+        <div class="pbg"><img src="../퍼스널.jfif" alt="퍼스널 컬러 진단"></div>
         <h4>퍼스널 컬러 진단</h4>
         <p>1:1  ·  2:1 맞춤 진단</p>
         <span class="arrow"><span class="ico"><svg><use href="#i-arrow"/></svg></span></span>
       </a>
       <a href="#" class="product">
-        <div class="pbg"><img src="wedding.jpg" alt="웨딩 컨설팅"></div>
+        <div class="pbg"><img src="../웨딩.jfif" alt="웨딩 컨설팅"></div>
         <h4>웨딩 컨설팅</h4>
         <p>신부 · 신랑 · 커플 맞춤 컨설팅</p>
         <span class="arrow"><span class="ico"><svg><use href="#i-arrow"/></svg></span></span>
       </a>
       <a href="#" class="product">
-        <div class="pbg"><img src="interview.jpg" alt="면접·프로필·소개팅 컨설팅"></div>
+        <div class="pbg"><img src="../면접.jfif" alt="면접·프로필·소개팅 컨설팅"></div>
         <h4>면접 · 프로필 · 소개팅</h4>
         <p>면접 / 프로필 / 소개팅 / 대리쇼핑<br>올인원 맞춤 컨설팅</p>
         <span class="arrow"><span class="ico"><svg><use href="#i-arrow"/></svg></span></span>
@@ -485,7 +474,7 @@ footer .copy{margin-top:48px;padding-top:24px;border-top:1px solid rgba(255,255,
 <footer>
   <div class="wrap">
     <div>
-      <h5><img src="logo.png" alt="VL Visual Light"></h5>
+      <h5><img src="../브이엘 로고.png" alt="VL Visual Light"></h5>
       <p style="line-height:1.9">브이엘 퍼스널컬러 · 이미지 컨설팅<br>인천 연수구 송도과학로 70<br>송도AT센터 1동 (오피스동) 2314호<br>0507-1369-8334</p>
     </div>
     <div>
