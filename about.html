@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ABOUT | 브이엘퍼스널컬러</title>
+<meta name="description" content="인천 송도 1:1 프라이빗 토탈 컨설팅 — 얼굴타입·골격·퍼스널컬러 통합 진단">
+<meta property="og:type" content="website">
+<meta property="og:title" content="브이엘퍼스널컬러 · 프리미엄 토탈 이미지 컨설팅">
+<meta property="og:description" content="인천 송도 1:1 프라이빗 토탈 컨설팅 — 얼굴타입·골격·퍼스널컬러 통합 진단">
+<meta property="og:image" content="https://vdirectors00-blip.github.io/vl2/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://vdirectors00-blip.github.io/vl2/og-image.jpg">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css">
+<link rel="stylesheet" href="shared.css">
+<style>
+.about-intro{display:grid;grid-template-columns:1fr 1.1fr;gap:80px;align-items:center;padding:120px 32px;max-width:1280px;margin:0 auto}
+.about-intro img{aspect-ratio:4/5;object-fit:cover;width:100%}
+.about-intro .txt h2{font-size:46px;font-weight:800;letter-spacing:-1px;line-height:1.2;margin-bottom:32px}
+.about-intro .txt p{font-size:15.5px;line-height:1.95;color:#333;margin-bottom:18px}
+
+.values{background:#0a0a0a;color:#fff;padding:120px 32px}
+.values .wrap{display:grid;grid-template-columns:repeat(3,1fr);gap:48px}
+.value-card{padding:48px 32px;border:1px solid rgba(255,255,255,.16);transition:background .4s,border-color .4s}
+.value-card:hover{background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.4)}
+.value-card .num{font-size:13px;letter-spacing:4px;color:var(--point);font-weight:700;margin-bottom:24px;display:block}
+.value-card h3{font-size:26px;font-weight:800;letter-spacing:-.5px;line-height:1.3;margin-bottom:16px}
+.value-card p{font-size:14px;color:rgba(255,255,255,.7);line-height:1.85}
+
+.process{padding:120px 32px;max-width:1280px;margin:0 auto}
+.process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:32px;margin-top:20px}
+.process-step{position:relative;padding-top:36px;border-top:1px solid var(--ink)}
+.process-step .step-num{position:absolute;top:-14px;background:#fff;padding:0 12px 0 0;font-size:12px;letter-spacing:3px;color:var(--ink);font-weight:700}
+.process-step h4{font-size:22px;font-weight:800;letter-spacing:-.3px;margin-bottom:14px}
+.process-step p{font-size:14px;color:var(--mute);line-height:1.8}
+
+.founder{background:#fafafa;padding:120px 32px}
+.founder .wrap{display:grid;grid-template-columns:1fr 1.2fr;gap:80px;align-items:center;max-width:1200px;margin:0 auto}
+.founder img{aspect-ratio:4/5;object-fit:cover;width:100%}
+.founder h2{font-size:48px;font-weight:800;letter-spacing:-.8px;line-height:1.15;margin-bottom:10px}
+.founder-role{font-size:13px;letter-spacing:2px;color:var(--mute);font-weight:600;text-transform:uppercase;margin-bottom:28px;display:block}
+.founder p.lede{font-size:15.5px;color:#333;line-height:1.95;margin-bottom:36px}
+.founder-list{list-style:none;display:grid;gap:0;border-top:1px solid var(--line)}
+.founder-list li{display:flex;align-items:center;gap:18px;padding:18px 4px;border-bottom:1px solid var(--line);font-size:15px;color:var(--ink);font-weight:500;letter-spacing:-.2px}
+.founder-list .ico-c{width:36px;height:36px;border-radius:50%;background:rgba(64,39,89,.08);display:flex;align-items:center;justify-content:center;flex:0 0 auto;color:var(--primary)}
+.founder-list .ico-c svg{width:17px;height:17px;display:block}
+
+/* DIRECTOR section */
+.director{background:#fff;padding:120px 32px;border-top:1px solid var(--line)}
+.director .wrap{display:grid;grid-template-columns:1.4fr 1fr;gap:80px;align-items:start;max-width:1280px;margin:0 auto}
+.director img{aspect-ratio:4/5;object-fit:cover;width:100%;position:sticky;top:120px}
+.director h2{font-size:48px;font-weight:800;letter-spacing:-.8px;line-height:1.15;margin-bottom:10px;color:var(--ink)}
+.director .founder-role{margin-bottom:24px}
+.director .lede{font-size:15.5px;color:#333;line-height:1.95;margin-bottom:36px}
+.dir-grid{display:grid;grid-template-columns:1fr 1fr;gap:36px 48px;border-top:1px solid var(--line);padding-top:28px}
+.dir-h{font-size:13px;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:var(--primary);margin-bottom:14px;padding-bottom:8px;border-bottom:1px solid var(--line);display:inline-block}
+.dir-list{list-style:none;display:grid;gap:8px}
+.dir-list li{font-size:13.5px;color:#333;line-height:1.55;padding-left:14px;position:relative}
+.dir-list li::before{content:'';position:absolute;left:0;top:9px;width:4px;height:4px;border-radius:50%;background:var(--primary);opacity:.7}
+
+@media (max-width:900px){
+  .director{padding:64px 16px}
+  .director .wrap{grid-template-columns:1fr;gap:32px}
+  .director img{position:static;aspect-ratio:4/5;max-width:340px;margin:0 auto;order:-1}
+  .director h2{font-size:30px}
+  .dir-grid{grid-template-columns:1fr;gap:28px;padding-top:22px}
+  .dir-list li{font-size:13px}
+}
+
+@media (max-width:900px){
+  .about-intro,.founder .wrap{grid-template-columns:1fr;gap:40px;padding:64px 16px}
+  .about-intro .txt h2,.founder h2{font-size:28px}
+  .values .wrap,.process-grid{grid-template-columns:1fr;gap:24px}
+  .values,.process,.founder{padding:60px 16px}
+  .process-step h4{font-size:18px}
+}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-cert" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="10" r="5"/><path d="M9 14l-2 7 5-3 5 3-2-7"/></g></symbol>
+    <symbol id="i-cap" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9l10-5 10 5-10 5-10-5z"/><path d="M6 11v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5"/></g></symbol>
+    <symbol id="i-frame" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="9" width="18" height="6" rx="1"/><path d="M6 9v3M9 9v3M12 9v4M15 9v3M18 9v3"/></g></symbol>
+    <symbol id="i-palette" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a9 9 0 1 0 0 18c1.5 0 2-1.5 1-2.5s-.5-2.5 1-2.5h2a5 5 0 0 0 5-5c0-4.4-4-8-9-8z"/><circle cx="7.5" cy="10" r="1" fill="currentColor"/><circle cx="11" cy="6.5" r="1" fill="currentColor"/><circle cx="15.5" cy="8" r="1" fill="currentColor"/></g></symbol>
+    <symbol id="i-shirt" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M8 3l4 3 4-3 5 3-2 4-3-1v11H6V9L3 10 1 6z"/></symbol>
+    <symbol id="i-mic" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2.5" width="6" height="12" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3M8.5 21h7"/></g></symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.7A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></symbol>
+    <symbol id="i-face" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9 10v.01M15 10v.01M8.5 15c1 .8 2.2 1.2 3.5 1.2s2.5-.4 3.5-1.2"/></g></symbol>
+  </defs>
+</svg>
+
+<nav class="nav" id="nav">
+  <a href="index.html" class="nav-logo"><img src="logo2.png" alt="VL VALUE LIGHT"></a>
+  <button class="nav-toggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  <div class="nav-menu">
+    <a href="about.html" class="current">ABOUT</a>
+    <a href="program.html">PROGRAM</a>
+    <a href="wedding.html">WEDDING</a>
+    <a href="academy.html">ACADEMY</a>
+    <a href="review.html">REVIEW</a>
+    <a href="reservation.html">RESERVATION</a>
+  </div>
+</nav>
+<div class="nav-backdrop"></div>
+
+<section class="page-hero">
+  <div class="ph-bg" style="background-image:url('hero-about.jpg')"></div>
+  <div class="ph-inner">
+    <span class="ph-eyebrow">VL VALUE LIGHT 브이엘이미지컨설팅</span>
+    <h1>ABOUT</h1>
+  </div>
+</section>
+
+<div class="bread">
+  <span><a href="index.html">HOME</a></span><span class="current">ABOUT</span>
+</div>
+
+<!-- INTRO -->
+<section class="about-intro reveal">
+  <img src="brand.jpg" alt="VL 컨설팅 룸">
+  <div class="txt">
+    <span class="section-eyebrow" style="text-align:left">Brand Story</span>
+    <h2>유일한 토탈 이미지<br>컨설팅 브랜드</h2>
+    <p>브이엘퍼스널컬러진단은 단순한 컬러 진단을 넘어<br><strong>얼굴타입 · 골격 · 퍼스널컬러</strong>를 통합 분석합니다.</p>
+    <p>각자의 분위기를 가장 빛나게 하는 색과 스타일을 찾고, 실전 옷장에 바로 적용 가능한 토탈 이미지를 완성합니다.</p>
+    <p style="margin-top:32px;color:var(--mute);font-size:14px;letter-spacing:.5px">— 인천 송도 1:1 프라이빗 살롱</p>
+  </div>
+</section>
+
+<!-- VALUES -->
+<section class="values reveal">
+  <div class="wrap">
+    <div class="value-card">
+      <span class="num">01</span>
+      <h3>토탈 진단</h3>
+      <p>얼굴타입 · 골격 · 퍼스널컬러를 통합 분석. 단편적인 색 진단이 아닌, 입체적 이미지 분석으로 정확도를 높입니다.</p>
+    </div>
+    <div class="value-card">
+      <span class="num">02</span>
+      <h3>실전 컨설팅</h3>
+      <p>진단으로 끝내지 않습니다. 셔츠 · 수트 · 캐주얼까지 실전 옷장에 바로 적용 가능한 스타일링까지 함께합니다.</p>
+    </div>
+    <div class="value-card">
+      <span class="num">03</span>
+      <h3>1:1 프라이빗</h3>
+      <p>한 명의 고객, 한 명의 컨설턴트. 충분한 시간을 들여 당신만의 시그니처 이미지를 설계합니다.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process reveal">
+  <div class="section-head">
+    <span class="section-eyebrow">Consulting Process</span>
+    <h2>진단부터 옷장까지,<br>유일한 토탈 컨설팅</h2>
+  </div>
+  <div class="process-grid">
+    <div class="process-step"><span class="step-num">— STEP 01</span><h4>상담</h4><p>고객의 라이프스타일·취향·고민 사전 인터뷰</p></div>
+    <div class="process-step"><span class="step-num">— STEP 02</span><h4>토탈 진단</h4><p>얼굴타입 · 골격 · 퍼스널컬러 통합 분석</p></div>
+    <div class="process-step"><span class="step-num">— STEP 03</span><h4>스타일링</h4><p>셔츠 · 수트 · 캐주얼 컬러 매칭과 코디 제안</p></div>
+    <div class="process-step"><span class="step-num">— STEP 04</span><h4>실전 적용</h4><p>PDF 진단서 + 팔레트북 · 쇼핑 가이드 제공</p></div>
+  </div>
+</section>
+
+<!-- FOUNDER -->
+<section class="founder reveal">
+  <div class="wrap">
+    <img src="about-field.jpg" alt="현장 실무 컨설팅">
+    <div>
+      <span class="section-eyebrow" style="text-align:left">총괄디렉터</span>
+      <h2>박주해</h2>
+      <span class="founder-role">PARK JOO HAE · IMAGE CONSULTANT</span>
+      <p class="lede">15년 이상의 이미지 컨설팅 경력을 바탕으로<br>개인의 특성과 라이프스타일을 분석하여<br>최적의 이미지를 제안하는 전문 컨설턴트입니다.</p>
+      <ul class="founder-list">
+        <li><span class="ico-c"><svg><use href="#i-cert"/></svg></span> 일본 국제 얼굴타입 진단 1급</li>
+        <li><span class="ico-c"><svg><use href="#i-cap"/></svg></span> 일본 얼굴형 진단 자격증 발급 운영</li>
+        <li><span class="ico-c"><svg><use href="#i-frame"/></svg></span> 일본 골격(바디프레임) 진단 1급</li>
+        <li><span class="ico-c"><svg><use href="#i-palette"/></svg></span> 퍼스널컬러 자격증 과정 운영</li>
+        <li><span class="ico-c"><svg><use href="#i-shirt"/></svg></span> 패션 브랜드 실무 경력</li>
+        <li><span class="ico-c"><svg><use href="#i-mic"/></svg></span> 학교 · 기관 · 기업 출강 진행</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- DIRECTOR — 진소향 -->
+<section class="founder reveal" style="background:#fff;border-top:1px solid var(--line)">
+  <div class="wrap">
+    <img src="director.jpg" alt="소속 디렉터 진소향">
+    <div>
+      <span class="section-eyebrow" style="text-align:left">소속 디렉터</span>
+      <h2>진소향</h2>
+      <span class="founder-role">JIN SO HYANG · COLOR COMMUNICATOR</span>
+      <p class="lede">개인의 고유한 특성과 강점을 분석하여<br>가치를 찾고 매력적인 이미지를 설계하는<br>전문 컨설턴트입니다.</p>
+      <ul class="founder-list">
+        <li><span class="ico-c"><svg><use href="#i-palette"/></svg></span> 퍼스널컬러 진단</li>
+        <li><span class="ico-c"><svg><use href="#i-face"/></svg></span> 얼굴형 &amp; 이미지 분석</li>
+        <li><span class="ico-c"><svg><use href="#i-frame"/></svg></span> 체형 &amp; 골격 진단</li>
+        <li><span class="ico-c"><svg><use href="#i-heart"/></svg></span> 컬러테라피</li>
+        <li><span class="ico-c"><svg><use href="#i-shirt"/></svg></span> 이미지 브랜딩</li>
+        <li><span class="ico-c"><svg><use href="#i-mic"/></svg></span> 강의 · 워크숍 · 기업교육</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section" style="text-align:center;padding:120px 32px 100px">
+  <span class="section-eyebrow">예약하기</span>
+  <h2 style="font-size:48px;font-weight:800;letter-spacing:-1px;line-height:1.2;margin-bottom:18px">1:1 프라이빗 토탈 컨설팅</h2>
+  <p style="color:var(--mute);font-size:15.5px;margin-bottom:48px">예약을 통해 당신만의 시그니처 이미지를 만나보세요.</p>
+  <a href="reservation.html" class="btn-solid">예약하기 <span class="ico"><svg><use href="#i-arrow"/></svg></span></a>
+</section>
+
+<footer>
+  <div class="f-wrap">
+    <div class="f-brand">
+      <strong>VL · VALUE LIGHT</strong>
+      브이엘이미지 컨설팅<br>대표자: 박주해<br>주소: 인천 연수구 송도과학로 70, 송도AT센터 1동 (오피스동) 2314호<br>대표번호: 0507-1369-8334
+    </div>
+    <div class="f-sns">
+      <a href="https://www.instagram.com/value_light_" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
+      <a href="https://blog.naver.com/jujae7981/" target="_blank" rel="noopener" aria-label="Naver Blog"><svg viewBox="0 0 24 24"><text x="12" y="17.5" text-anchor="middle" font-family="Pretendard, system-ui, sans-serif" font-size="16" font-weight="900" fill="currentColor">B</text></svg></a>
+      <a href="javascript:void(0)" aria-label="KakaoTalk"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 4c-5 0-9 3.2-9 7.2 0 2.6 1.7 4.9 4.2 6.1l-.9 3.3a.4.4 0 00.6.4l3.9-2.5c.4.05.8.07 1.2.07 5 0 9-3.2 9-7.2S17 4 12 4z"/></svg></a>
+    </div>
+  </div>
+</footer>
+
+<script>
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.18,rootMargin:'0px 0px -8% 0px'});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',window.scrollY>40),{passive:true});
+(function(){var n=document.getElementById("nav");if(!n)return;var t=n.querySelector(".nav-toggle");var b=document.querySelector(".nav-backdrop");function c(){n.classList.remove("open");document.body.style.overflow=""}if(t){t.addEventListener("click",function(){var o=n.classList.toggle("open");document.body.style.overflow=o?"hidden":"";t.setAttribute("aria-expanded",o)})}if(b){b.addEventListener("click",c)}n.querySelectorAll(".nav-menu a").forEach(function(a){a.addEventListener("click",c)});})();
+</script>
+</body>
+</html>
